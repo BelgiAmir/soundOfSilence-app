@@ -1,0 +1,15 @@
+<div class="container-fluid parent" *ngIf='slides && slides.length'>
+  <div class="row">
+    <div class="col-md-5">
+      <carousel data-keyboard="false">
+        <slide *ngFor='let slide of slides; let i=index;'>
+          <img [src]='slide.imageUrl'>
+          <div class="carousel-caption">
+            <h3>{{slide.slideName}}</h3>
+            <p>{{i + 1}}</p>
+          </div>
+          </slide>
+      </carousel>
+    </div>
+  </div>
+</div>
