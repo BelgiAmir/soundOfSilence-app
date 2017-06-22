@@ -1,0 +1,16 @@
+<div class="well" *ngIf='slides && slides.length && Questions && Questions.length'>
+  <h1>Question {{currentQuestionNumber +1}}</h1>
+  <img [src]='Questions[currentQuestionNumber].ImageUrl'>
+  <br>
+  <md-radio-group class="example-radio-group" [(ngModel)]="currentAnswer">
+    <md-radio-button class="example-radio-button" *ngFor="let possibleAnswer of Questions[currentQuestionNumber].Answers" [value]="possibleAnswer">
+      {{possibleAnswer}}
+    </md-radio-button>
+  </md-radio-group>
+  <div class="example-selected-value">
+    <p>Your selected: {{currentAnswer}} </p>
+    <p>Total correct: {{correctAnswersCount}}</p>
+  </div>
+  <button [disabled]="examFinished || !currentAnswer" class='btn btn-primary' (click)='MoveToNextImage()'>
+   Next Question</button>
+</div>

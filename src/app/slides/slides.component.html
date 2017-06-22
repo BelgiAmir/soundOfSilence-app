@@ -1,15 +1,20 @@
 <div class="container-fluid parent" *ngIf='slides && slides.length'>
   <div class="row">
     <div class="col-md-5">
-      <carousel data-keyboard="false">
-        <slide *ngFor='let slide of slides; let i=index;'>
-          <img [src]='slide.imageUrl'>
-          <div class="carousel-caption">
-            <h3>{{slide.slideName}}</h3>
-            <p>{{i + 1}}</p>
-          </div>
-          </slide>
-      </carousel>
+
+      <div>
+      </div>
+
+      <!--<div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Song {{currentImageNumber +1}}/{{slides.length}}</h3>
+        </div>
+        <div class="panel-body">-->
+          <img [src]='currentImage.imageUrl'>
+          <h1>{{currentImage.SongTitle}}</h1>
+        <!--</div>
+      </div>-->
+
     </div>
   </div>
 </div>

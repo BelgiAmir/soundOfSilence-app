@@ -1,62 +1,62 @@
 [
     {
-        "slideName": "song 1",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "תתארו לכם עולם יפה",
+        "imageUrl": "./assets/images/1.png"
     },
     {
-        "slideName": "song 2",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "הזהב של השכונה",
+        "imageUrl": "./assets/images/2.png"
     },
     {
-        "slideName": "song 3",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "על כביש החוף",
+        "imageUrl": "./assets/images/3.png"
     },
     {
-        "slideName": "song 4",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "החיים שלנו תותים",
+        "imageUrl": "./assets/images/4.png"
     },
     {
-        "slideName": "song 5",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "מתנות קטנות",
+        "imageUrl": "./assets/images/5.png"
     },
     {
-        "slideName": "song 6",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "מי אוהב אותך יותר ממני",
+        "imageUrl": "./assets/images/6.png"
     },
     {
-        "slideName": "song 7",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "יונתן הקטן",
+        "imageUrl": "./assets/images/7.png"
     },
     {
-        "slideName": "song 8",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "ואיך שלא אפנה לראות",
+        "imageUrl": "./assets/images/8.png"
     },
     {
-        "slideName": "song 9",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "איפה איפה איפה העוגה",
+        "imageUrl": "./assets/images/9.png"
     },
     {
-        "slideName": "song 10",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "את אחלה חמודה",
+        "imageUrl": "./assets/images/10.png"
     },
     {
-        "slideName": "song 11",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "רודוס, בלאגן ברודוס",
+        "imageUrl": "./assets/images/11.png"
     },
     {
-        "slideName": "song 12",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "עטור מצחך זהב שחור",
+        "imageUrl": "./assets/images/12.png"
     },
     {
-        "slideName": "song 13",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "אין לי ארץ אחרת",
+        "imageUrl": "./assets/images/13.png"
     },
     {
-        "slideName": "song 14",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "רעמים וברקים בליל חורף קר",
+        "imageUrl": "./assets/images/14.png"
     },
     {
-        "slideName": "song 15",
-        "imageUrl": "http://valor-software.com/ngx-bootstrap/assets/images/nature/1.jpg"
+        "SongTitle": "טיסה 5325",
+        "imageUrl": "./assets/images/15.png"
     }
 ]
