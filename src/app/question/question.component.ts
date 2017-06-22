@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 import { MultipleChoiceQuestion } from 'app/question/MultipleChoiceQuestion'
 import { Http, Response } from '@angular/http';
-
+import { SharedService } from '../shared/shared.service';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/map';
@@ -21,7 +21,10 @@ import 'rxjs/add/operator/catch';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor(private _slidesService: SlidesService, private _http: Http) { }
+  constructor(private _slidesService: SlidesService, private _sharedSrv: SharedService, private _http: Http) {
+    _sharedSrv.SetStageTitleAndProgress("שלב המבחן", 30);
+  }
+
   slides: Slide[];
   currSlide: Slide;
   Questions: MultipleChoiceQuestion[];

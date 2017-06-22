@@ -38,8 +38,9 @@ export class SlidesService {
 
             slides[i] = new Slide(images[i], songs[i]);
         }
-
         this.shuffle(slides);
+
+        slides[images.length] = new Slide("./assets/images/16.png", "סיימתם את שלב הלמידה");
         return slides;
     }
 

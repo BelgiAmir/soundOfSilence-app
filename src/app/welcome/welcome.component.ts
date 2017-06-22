@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-welcome',
@@ -8,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _sharedSrv: SharedService) {
+    _sharedSrv.SetStageTitleAndProgress("ברוכים הבאים", 0);
+  }
 
   ngOnInit() {
   }

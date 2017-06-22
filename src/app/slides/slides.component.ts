@@ -4,6 +4,8 @@ import { SlidesService } from './slides.service';
 import { Slide } from './slide';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
+import { Router } from '@angular/router';
+import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-slides',
@@ -17,11 +19,17 @@ export class SlidesComponent implements OnInit {
   errorMessage: string;
   currentImageNumber: number;
   currentImage: Slide;
-  timerSub: Subscription
+  timerSub: Subscription;
+  showNextButton: boolean;
+  stageTitle: string;
 
-  constructor(private _slidesService: SlidesService) { }
+  constructor(private _slidesService: SlidesService, private router: Router, private _sharedService: SharedService) {
+    console.log("setting title");
+    _sharedService.SetStageTitleAndProgress("שלב הלמידה", 15);
+  }
 
   ngOnInit(): void {
+    
     this._slidesService.getSlides()
       .subscribe(slides => {
         this.slides = slides
@@ -33,6 +41,7 @@ export class SlidesComponent implements OnInit {
       },
       error => this.errorMessage = <any>error);
 
+    this.showNextButton = false;
 
   }
 
@@ -41,7 +50,16 @@ export class SlidesComponent implements OnInit {
     this.currentImage = this.slides[this.currentImageNumber];
     if (this.currentImageNumber == this.slides.length - 1) {
       this.timerSub.unsubscribe();
+      this.showNextButton = true;
     }
+  }
+
+  continue() {
+    this.router.navigateByUrl('\questions');
+  }
+
+  exit() {
+    this.router.navigateByUrl('\exitSite');
   }
 
 }

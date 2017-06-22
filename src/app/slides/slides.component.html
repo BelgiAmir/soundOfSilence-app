@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-5">
 
-      <div>
+      <div class="row center-block">
+        <img [src]='currentImage.imageUrl' class="img-responsive center-block">
+        <h1>{{currentImage.SongTitle}}</h1>
       </div>
 
       <!--<div class="panel panel-primary">
@@ -10,10 +12,20 @@
           <h3 class="panel-title">Song {{currentImageNumber +1}}/{{slides.length}}</h3>
         </div>
         <div class="panel-body">-->
-          <img [src]='currentImage.imageUrl'>
-          <h1>{{currentImage.SongTitle}}</h1>
-        <!--</div>
+
+      <!--</div>
       </div>-->
+      <div class="row" *ngIf='showNextButton'>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-success" (click)="continue()">מאשר המשך</button>
+        </div>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-danger" (click)="exit()">צא מהמבחן</button>
+        </div>
+      </div>
+
 
     </div>
   </div>

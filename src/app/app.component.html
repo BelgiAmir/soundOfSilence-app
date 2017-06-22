@@ -1,14 +1,23 @@
 <div class="container-fluid parent">
-    <div class="row">
+    <div class="row  center-block">
         <div class="col-md-3">
         </div>
         <div class="col-md-6">
             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title"> progress bar</h3>
+                <div class="panel-heading  center-block">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <progressbar [value]="progress" type="success"><b>{{progress}}%</b></progressbar>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="panel-title"> {{title}} </h3>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
+
                     <router-outlet></router-outlet>
+
                 </div>
             </div>
         </div>

@@ -18,6 +18,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module'
 import { RouterModule, Routes, } from '@angular/router';
 import { provideRoutes } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { SharedService } from './shared/shared.service';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     AlertModule.forRoot(),
     CarouselModule.forRoot(),
     AppRoutingModule,
+    ProgressbarModule.forRoot()
   ],
-  providers: [SlidesService],
+  providers: [SlidesService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
