@@ -4,7 +4,8 @@
 
       <div class="row center-block">
         <img [src]='currentImage.imageUrl' class="img-responsive center-block">
-        <h1>{{currentImage.SongTitle}}</h1>
+        <h1 *ngIf='showTitle'>{{currentImage.SongTitle}}</h1>
+        <h1 *ngIf='!showTitle'> {{currentImage.tnt}} </h1>
       </div>
 
       <!--<div class="panel panel-primary">

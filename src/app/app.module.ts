@@ -20,6 +20,15 @@ import { provideRoutes } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SharedService } from './shared/shared.service';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { ExterminateComponent } from './exterminate/exterminate.component';
+import { QuestioneerComponent } from './questioneer/questioneer.component';
+import { TetrisComponent } from './tetris/tetris.component';
+import { TimerComponent } from './timer/timer.component';
+import { AutofocusDirective } from './shared/focus.directive';
+import { InstructionsComponent } from './instructions/instructions.component';
+import { SelfReportComponent } from './self-report/self-report.component';
+import { PosterService } from './shared/poster.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +36,14 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
     SlidesComponent,
     QuestionComponent,
     WelcomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ExterminateComponent,
+    QuestioneerComponent,
+    TetrisComponent,
+    TimerComponent,
+    AutofocusDirective,
+    InstructionsComponent,
+    SelfReportComponent,
   ],
   imports: [ReactiveFormsModule, MaterialModule,
     BrowserAnimationsModule,
@@ -41,7 +57,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
     AppRoutingModule,
     ProgressbarModule.forRoot()
   ],
-  providers: [SlidesService, SharedService],
+  providers: [PosterService, SlidesService, SharedService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

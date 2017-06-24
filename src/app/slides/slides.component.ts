@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { SlidesService } from './slides.service';
 import { Slide } from './slide';
@@ -21,15 +21,17 @@ export class SlidesComponent implements OnInit {
   currentImage: Slide;
   timerSub: Subscription;
   showNextButton: boolean;
-  stageTitle: string;
-
+  @Input() showTitle: boolean = true;
+  @Input() nextBtn: string = '\questions';
+  @Input() progress: number = 15;
+  @Input() stageTitle: string = "שלב הלמידה";
   constructor(private _slidesService: SlidesService, private router: Router, private _sharedService: SharedService) {
     console.log("setting title");
-    _sharedService.SetStageTitleAndProgress("שלב הלמידה", 15);
   }
 
   ngOnInit(): void {
-    
+
+    this._sharedService.SetStageTitleAndProgress(this.stageTitle, this.progress);
     this._slidesService.getSlides()
       .subscribe(slides => {
         this.slides = slides
@@ -55,7 +57,7 @@ export class SlidesComponent implements OnInit {
   }
 
   continue() {
-    this.router.navigateByUrl('\questions');
+    this.router.navigateByUrl(this.nextBtn);
   }
 
   exit() {

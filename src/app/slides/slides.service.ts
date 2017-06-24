@@ -9,8 +9,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SlidesService {
-    private _imagesUrl = 'api/slides/Images.json';
-    private _songsUrl = 'api/slides/Songs.json';
+    private _imagesUrl = 'api/slides/Images.1.json';
+    private _songsUrl = 'api/slides/Songs.1.json';
 
     constructor(private _http: Http) { }
 
@@ -33,14 +33,19 @@ export class SlidesService {
     private CombineImagesAndSongs
         (images: string[], songs: string[]): Slide[] {
         let slides: Slide[] = [];
-
+        let tnt: string;
         for (let i = 0; i < images.length; i++) {
-
-            slides[i] = new Slide(images[i], songs[i]);
+            if (i % 2 == 0) {
+                tnt = "חשוב";
+            }
+            else {
+                tnt = "אל תחשוב";
+            }
+            slides[i] = new Slide(images[i], songs[i], tnt);
         }
         this.shuffle(slides);
 
-        slides[images.length] = new Slide("./assets/images/16.png", "סיימתם את שלב הלמידה");
+        slides[images.length] = new Slide("./assets/images/16.png", "", "סיימתם את שלב החשוב/אל תחשוב");
         return slides;
     }
 
