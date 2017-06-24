@@ -10,12 +10,12 @@ mongoose.connect('mongodb://localhost/foo');
 let db = mongoose.connection;
 
 //check db connection
-db.once('open', function() {
+db.once('open', function () {
     console.log('connected to MongoDb!');
 })
 
 //check for db errors
-db.on('error', function(err) {
+db.on('error', function (err) {
     console.log(error);
 })
 
@@ -45,7 +45,7 @@ app.get('*', (req, res) => {
 
 
 
-app.post('/add', function(req, res) {
+app.post('/add', function (req, res) {
     console.log('submmiting report');
     console.log(req.body);
     res.end("Good");
