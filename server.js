@@ -22,27 +22,27 @@ const bodyParser = require('body-parser');
 // })
 
 // Get our API routes
-const api = require('./server/routes/api');
+const api = require('./src/server/routes/api');
 
 const app = express();
 var cors = require('cors');
 app.use(cors());
 //bring in model
-let Report = require('./server/models/selfReport');
+let Report = require('./src/server/models/selfReport');
 
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, './dist')));
 // app.use(express.static(static_dir));
 // Set our api routes
 app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist/index.html'));
+    res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 
