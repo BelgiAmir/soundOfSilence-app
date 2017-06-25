@@ -4,20 +4,20 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-//mongo
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/foo');
-let db = mongoose.connection;
+// //mongo
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/foo');
+// let db = mongoose.connection;
 
-//check db connection
-db.once('open', function () {
-    console.log('connected to MongoDb!');
-})
+// //check db connection
+// db.once('open', function () {
+//     console.log('connected to MongoDb!');
+// })
 
-//check for db errors
-db.on('error', function (err) {
-    console.log(error);
-})
+// //check for db errors
+// db.on('error', function (err) {
+//     console.log(error);
+// })
 
 // Get our API routes
 const api = require('./server/routes/api');
