@@ -1,0 +1,32 @@
+[
+    {
+        "Answers": [
+            "טיסה 5325",
+            "את אחלה חמודה",
+            "מי אוהב אותך יותר ממני",
+            "תתארו לכם עולם יפה"
+        ],
+        "CorretAnswerIndex": 3,
+        "ImageUrl": "./assets/images/1.png"
+    },
+    {
+        "Answers": [
+            "הזהב של השכונה",
+            "איפה איפה איפה העוגה",
+            "רודוס, בלאגן ברודוס",
+            "אין לי ארץ אחרת"
+        ],
+        "CorretAnswerIndex": 3,
+        "ImageUrl": "./assets/images/2.png"
+    },
+    {
+        "Answers": [
+            "טיסה 5325",
+            "על כביש החוף",
+            "יונתן הקטן",
+            "מתנות קטנות"
+        ],
+        "CorretAnswerIndex": 3,
+        "ImageUrl": "./assets/images/3.png"
+    }
+]
