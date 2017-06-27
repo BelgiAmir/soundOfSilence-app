@@ -39,6 +39,38 @@ export class QuestionComponent implements OnInit {
   typeOfAlert: string = "success";
   alertMessage: string;
   didPass = false;
+  questions: MultipleChoiceQuestion[] = [
+    {
+      "Answers": [
+        "טיסה 5325",
+        "את אחלה חמודה",
+        "מי אוהב אותך יותר ממני",
+        "תתארו לכם עולם יפה"
+      ],
+      "CorretAnswerIndex": 3,
+      "ImageUrl": "./assets/images/1.png"
+    },
+    {
+      "Answers": [
+        "הזהב של השכונה",
+        "איפה איפה איפה העוגה",
+        "רודוס, בלאגן ברודוס",
+        "אין לי ארץ אחרת"
+      ],
+      "CorretAnswerIndex": 3,
+      "ImageUrl": "./assets/images/2.png"
+    },
+    {
+      "Answers": [
+        "טיסה 5325",
+        "על כביש החוף",
+        "יונתן הקטן",
+        "מתנות קטנות"
+      ],
+      "CorretAnswerIndex": 3,
+      "ImageUrl": "./assets/images/3.png"
+    }
+  ];
   ngOnInit() {
     this.start();
   }
@@ -49,9 +81,7 @@ export class QuestionComponent implements OnInit {
         this.slides = slides
         this.currSlide = slides[0];
         this.examFinished = false;
-        this._http.get('api/slides/Questions.1.json')
-          .map((response: Response) => <MultipleChoiceQuestion[]>response.json())
-          .do(data => console.log('Questions: ' + JSON.stringify(data)))
+        Observable.of(this.questions)
           .subscribe(questions => this.Questions = questions);
         this.currentQuestionNumber = 0;
         this.correctAnswersCount = 0;
