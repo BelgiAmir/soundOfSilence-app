@@ -10,13 +10,28 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class SlidesService {
     private _imagesUrl = 'public/Images.1.json';
-    private _songsUrl = 'public/slides/Songs.1.json';
 
+    private images = [
+        "./assets/images/1.png",
+        "./assets/images/2.png",
+        "./assets/images/3.png"
+    ];
+
+    private _songsUrl = 'public/Songs.1.json';
+
+    private songs = [
+        "תתארו לכם עולם יפה",
+        "הזהב של השכונה",
+        "על כביש החוף"
+    ];
     constructor(private _http: Http) { }
 
     getSlides(): Observable<Slide[]> {
-        let imagessObservable = this.ReadFromJson(this._imagesUrl);
-        let songsObservable = this.ReadFromJson(this._songsUrl);
+        // let imagessObservable = this.ReadFromJson(this._imagesUrl);
+        // let songsObservable = this.ReadFromJson(this._songsUrl);
+
+        let imagessObservable = Observable.of(this.images);
+        let songsObservable = Observable.of(this.songs);
 
         return Observable.zip(imagessObservable, songsObservable,
             (images, songs) =>
