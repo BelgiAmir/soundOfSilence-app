@@ -9,8 +9,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SlidesService {
-    private _imagesUrl = 'api/slides/Images.1.json';
-    private _songsUrl = 'api/slides/Songs.1.json';
+    private _imagesUrl = 'public/Images.1.json';
+    private _songsUrl = 'public/slides/Songs.1.json';
 
     constructor(private _http: Http) { }
 
