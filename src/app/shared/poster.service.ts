@@ -20,8 +20,8 @@ export class PosterService {
     console.error('post error: ', error);
     return Observable.throw(error.statusText);
   }
-  postSelfReport(selfReport: SelfReport): Observable<any> {
-    let body = JSON.stringify(selfReport);
+  postSelfReport(any: any): Observable<any> {
+    let body = JSON.stringify(any);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 

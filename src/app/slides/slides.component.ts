@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { SharedService } from '../shared/shared.service';
+import { PosterService } from '../shared/poster.service';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'app-slides',
@@ -25,7 +27,7 @@ export class SlidesComponent implements OnInit {
   @Input() nextBtn: string = '\questions';
   @Input() progress: number = 15;
   @Input() stageTitle: string = "שלב הלמידה";
-  constructor(private _slidesService: SlidesService, private router: Router, private _sharedService: SharedService) {
+  constructor(private _http: Http, private _poster: PosterService, private _slidesService: SlidesService, private router: Router, private _sharedService: SharedService) {
     console.log("setting title");
   }
 
@@ -57,6 +59,10 @@ export class SlidesComponent implements OnInit {
   }
 
   continue() {
+    this._poster.postSelfReport(this.slides)
+      .subscribe(
+      data => console.log('success: ', data),
+      err => console.log('error: ', err))
     this.router.navigateByUrl(this.nextBtn);
   }
 
