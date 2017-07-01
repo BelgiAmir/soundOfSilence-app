@@ -14,14 +14,16 @@ import { Observable } from 'rxjs/Rx';
 })
 export class ExterminateComponent {
 
-  showTitle: boolean = false;
-  nextRoute: string = 'tetrisInstructions';
-  stageTitle: string = 'שלב תחשוב/אל תחשוב';
-  totalProgress: number = 70;
+  showTitle = false;
+  instructions = ' בשלב הבא, מוצג משחק טטריס לחמש דקות, תהנו';
+  nextRoute = '/tetris';
+  stageTitle = 'שלב תחשוב/אל תחשוב';
+  totalProgress = 50;
+  repetitions = 5;
 
   constructor(private _sharedService: SharedService, private _router: Router) {
-    console.log("setting title");
-    _sharedService.SetStageTitleAndProgress("שלב חשוב/אל תחשוב", 60);
+    console.log('setting title');
+    _sharedService.SetStageTitleAndProgress('שלב חשוב/אל תחשוב', 60);
   }
 
 }

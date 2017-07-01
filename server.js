@@ -42,16 +42,25 @@ app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './dist/index.html'));
+  res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 
 
 app.post('/add', function (req, res) {
-    console.log('submmiting report');
-    console.log(req.body);
-    res.end("Good");
-    return;
+  console.log('submmiting report');
+  console.log(req.body);
+
+  var jsonfile = require('jsonfile');
+
+  var fileName = './testResults/' + req.body.fileName;
+  var obj = { 'stage': req.body.body };
+
+  jsonfile.writeFile(fileName, obj, { flag: 'a' }, function (err) {
+    console.error(err)
+  });
+  res.end("Good");
+  return fileName;
 })
 
 /**

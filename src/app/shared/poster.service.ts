@@ -8,11 +8,13 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class PosterService {
-
-  constructor(private _http: Http) { }
+  public fileName = '';
+  constructor(private _http: Http) {
+    this.fileName = (Math.floor(Date.now() / 1000)) + '.json';
+  }
 
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body.fields || {};
   }
 
@@ -21,11 +23,13 @@ export class PosterService {
     return Observable.throw(error.statusText);
   }
   postSelfReport(any: any): Observable<any> {
-    let body = JSON.stringify(any);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    const body = JSON.stringify(any);
 
-    return this._http.post('/add', body, options)
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    const inData = JSON.stringify({ 'body': any, 'fileName': this.fileName });
+
+    return this._http.post('/add', inData, options)
       .map(this.extractData).catch(this.handleError);
   }
 }

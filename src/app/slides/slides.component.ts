@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { SharedService } from '../shared/shared.service';
 import { PosterService } from '../shared/poster.service';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
+import { InstructionsService } from '../instructions/instructions.service';
 @Component({
   selector: 'app-slides',
   templateUrl: './slides.component.html',
@@ -23,12 +23,15 @@ export class SlidesComponent implements OnInit {
   currentImage: Slide;
   timerSub: Subscription;
   showNextButton: boolean;
-  @Input() showTitle: boolean = true;
-  @Input() nextBtn: string = '\questions';
-  @Input() progress: number = 15;
-  @Input() stageTitle: string = "שלב הלמידה";
-  constructor(private _http: Http, private _poster: PosterService, private _slidesService: SlidesService, private router: Router, private _sharedService: SharedService) {
-    console.log("setting title");
+  @Input() showTitle = true;
+  @Input() nextBtn = '\questions';
+  @Input() progress = 15;
+  @Input() stageTitle = 'שלב הלמידה';
+  @Input() instructions = 'בשלב הבא אתם תבחנו על הצמדים שלמדתם. רק בציון 80, תוכלו לעבור הלאה';
+  @Input() repetitions = 1;
+  constructor(private _http: Http, private _poster: PosterService, private _slidesService: SlidesService,
+    private router: Router, private _sharedService: SharedService, private _instruction: InstructionsService) {
+    console.log('setting title');
   }
 
   ngOnInit(): void {
@@ -36,8 +39,8 @@ export class SlidesComponent implements OnInit {
     this._sharedService.SetStageTitleAndProgress(this.stageTitle, this.progress);
     this._slidesService.getSlides()
       .subscribe(slides => {
-        this.slides = slides
-        let timer = Observable.timer(2500, 2500);
+        this.slides = this.CreateSlidesWithRepitions(slides);
+        const timer = Observable.timer(2500, 2500);
         this.timerSub = timer.subscribe(t => this.OnTimerEvent());
 
         this.currentImageNumber = 0;
@@ -48,7 +51,14 @@ export class SlidesComponent implements OnInit {
     this.showNextButton = false;
 
   }
+  CreateSlidesWithRepitions(slides: Slide[]): Slide[] {
+    let slidesBuilt = slides;
+    for (let i = 1; i < this.repetitions; i++) {
+      slidesBuilt = slidesBuilt.concat(slides);
+    }
+    return slidesBuilt;
 
+  }
   OnTimerEvent(): void {
     this.currentImageNumber++;
     this.currentImage = this.slides[this.currentImageNumber];
@@ -62,8 +72,11 @@ export class SlidesComponent implements OnInit {
     this._poster.postSelfReport(this.slides)
       .subscribe(
       data => console.log('success: ', data),
-      err => console.log('error: ', err))
-    this.router.navigateByUrl(this.nextBtn);
+      err => console.log('error: ', err));
+
+    let instructionText = this.instructions;
+    this._instruction.SetInstructions(instructionText, this.nextBtn);
+    this.router.navigateByUrl('\instructions');
   }
 
   exit() {

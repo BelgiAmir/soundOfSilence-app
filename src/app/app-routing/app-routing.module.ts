@@ -8,8 +8,8 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { ExterminateComponent } from '../exterminate/exterminate.component';
 import { QuestioneerComponent } from '../questioneer/questioneer.component';
 import { TetrisComponent } from '../tetris/tetris.component';
-import {InstructionsComponent } from '../instructions/instructions.component';
-import {SelfReportComponent} from '../self-report/self-report.component';
+import { InstructionsComponent } from '../instructions/instructions.component';
+import { SelfReportComponent } from '../self-report/self-report.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +18,7 @@ import {SelfReportComponent} from '../self-report/self-report.component';
       { path: 'slides', component: SlidesComponent },
       { path: 'exetrminate', component: ExterminateComponent },
       { path: 'tetris', component: TetrisComponent },
-      { path: 'tetrisInstructions', component: InstructionsComponent },
+      { path: 'instructions', component: InstructionsComponent },
       { path: 'questioneer', component: QuestioneerComponent },
       { path: 'selfReport', component: SelfReportComponent },
       { path: '', component: WelcomeComponent },

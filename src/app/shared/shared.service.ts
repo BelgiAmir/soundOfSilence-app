@@ -7,7 +7,8 @@ import { Observable } from 'rxjs/Observable';
 export class SharedService {
   private subject: Subject<string> = new Subject<string>();
   private progress: Subject<number> = new Subject<number>();
-  stageTitle = "hello";
+
+  stageTitle = 'hello';
   stageLevel = 0;
   constructor() { }
 

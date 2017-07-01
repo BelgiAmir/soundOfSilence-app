@@ -1,7 +1,7 @@
 export class Slide {
     imageUrl: string;
     SongTitle: string;
-    tnt: string
+    tnt: string;
 
     constructor(image: string, song: string, tnt: string) {
         this.imageUrl = image;

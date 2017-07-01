@@ -14,7 +14,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { AppRoutingModule } from './app-routing/app-routing.module'
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RouterModule, Routes, } from '@angular/router';
 import { provideRoutes } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -28,7 +28,7 @@ import { AutofocusDirective } from './shared/focus.directive';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { SelfReportComponent } from './self-report/self-report.component';
 import { PosterService } from './shared/poster.service';
-
+import { InstructionsService } from './instructions/instructions.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { PosterService } from './shared/poster.service';
     AppRoutingModule,
     ProgressbarModule.forRoot()
   ],
-  providers: [PosterService, SlidesService, SharedService,],
+  providers: [PosterService, SlidesService, SharedService, InstructionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

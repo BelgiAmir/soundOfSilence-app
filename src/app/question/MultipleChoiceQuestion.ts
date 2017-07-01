@@ -1,5 +1,5 @@
 export class MultipleChoiceQuestion {
-    Answers: string[]
+    Answers: string[];
     CorretAnswerIndex: number;
     ImageUrl: string;
 
