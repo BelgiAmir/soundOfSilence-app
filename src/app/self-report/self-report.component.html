@@ -2,6 +2,9 @@
   <form #form="ngForm" (submit)="submit(form)" novalidate>
 
     <div class="row">
+      <div class="col-md-8">
+        <label> ?האם בזמן המשחק הופיעו שירים שונים במחשבתך </label>
+      </div>
       <div class="col-md-1">
         <div class="radio">
           <label>
@@ -16,76 +19,80 @@
         </label>
         </div>
       </div>
-      <div class="col-md-8">
-        <label> ?האם בזמן המשחק הופיעו שירים שונים במחשבתך </label>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-8">
+          <label> ?אם כן, איזה שירים </label>
+        </div>
+        <div class="col-md-4">
+          <input required type="text" placeholder="שירים" name="songsList" [(ngModel)]="formData.songsList">
+        </div>
       </div>
     </div>
 
-    <div class="form-group">
-      <input required type="text" placeholder="שירים" name="songsList" [(ngModel)]="formData.songsList">
-      <label> ?אם כן, איזה שירים </label>
-    </div>
-
-    <h3>שאלות כלליות - לא חובה לענות</h3>
-    <div class="form-group">
-      <label> גיל </label>
-      <select class="form-control" name="age" [(ngModel)]="formData.age">
+    <div class="row">
+      <h3>שאלות כלליות - לא חובה לענות</h3>
+      <div class="form-group">
+        <label> גיל </label>
+        <select class="form-control" name="age" [(ngModel)]="formData.age">
         <option> 18-25 </option>
         <option> 25-35 </option>
         <option> 35-45 </option>
         <option> 45-55 </option>
         <option> 55-65 </option>
       </select>
-    </div>
-
-    <div class="row">
-      <div class="col-md-1">
-        <div class="radio">
-          <label>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <label> ?מה מינך </label>
+        </div>
+        <div class="col-md-1">
+          <div class="radio">
+            <label>
         <input type="radio" name="sex" value="male" [(ngModel)]="formData.sex"> זכר
         </label>
+          </div>
         </div>
-      </div>
-      <div class="col-md-1">
-        <div class="radio">
-          <label>
+        <div class="col-md-1">
+          <div class="radio">
+            <label>
         <input type="radio" name="sex" value="female" [(ngModel)]="formData.sex"> נקבה
         </label>
+          </div>
         </div>
       </div>
-      <div class="col-md-8">
-        <label> ?מה מינך </label>
-      </div>
-    </div>
 
-    <div class="form-group">
-      <label> שפת אם </label>
-      <select class="form-control" name="lang" [(ngModel)]="formData.lang">
+      <div class="form-group">
+        <label> שפת אם </label>
+        <select class="form-control" name="lang" [(ngModel)]="formData.lang">
         <option> עברית </option>
         <option> אנגלית </option>
         <option> ערבית </option>
         <option> רוסית </option>
         <option> אחר </option>
       </select>
-    </div>
+      </div>
 
-    <div class="row">
-      <div class="col-md-1">
-        <div class="radio">
-          <label>
+      <div class="row">
+        <div class="col-md-8">
+          <label> ?קיים רקע מוזיקלי </label>
+        </div>
+        <div class="col-md-1">
+          <div class="radio">
+            <label>
         <input type="radio" name="musicBg" value="yes" [(ngModel)]="formData.musicBg"> כן
         </label>
+          </div>
         </div>
-      </div>
-      <div class="col-md-1">
-        <div class="radio">
-          <label>
+        <div class="col-md-1">
+          <div class="radio">
+            <label>
         <input type="radio" name="musicBg" value="no" [(ngModel)]="formData.musicBg"> לא
         </label>
+          </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <label> ?קיים רקע מוזיקלי </label>
       </div>
     </div>
 

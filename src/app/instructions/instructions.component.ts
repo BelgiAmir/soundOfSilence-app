@@ -15,7 +15,7 @@ export class InstructionsComponent implements OnInit {
   }
 
   continue(): void {
-    let nextStage = this._instructService.nextStage;
+    const nextStage = this._instructService.nextStage;
     this.router.navigateByUrl(nextStage);
   }
 }

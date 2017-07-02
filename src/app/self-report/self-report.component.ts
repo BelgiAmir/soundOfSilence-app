@@ -30,8 +30,9 @@ export class SelfReportComponent implements OnInit {
       data => console.log('success: ', data),
       err => console.log('error: ', err));
 
-    let instructionText = 'בשלב האחרון, תבחן שוב על הזכרון של הצמדים שהוצגו קודם לכן ';
-    this._instructionsService.SetInstructions(instructionText, '\questions');
+    const nextBtn = 'final';
+    const instructionText = 'בשלב האחרון, תבחן שוב על הזכרון של הצמדים שהוצגו קודם לכן ';
+    this._instructionsService.SetInstructions(instructionText, nextBtn);
     this.router.navigateByUrl('\instructions');
   }
 }

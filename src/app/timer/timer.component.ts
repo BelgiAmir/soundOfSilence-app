@@ -30,7 +30,7 @@ export class TimerComponent implements OnInit {
     if (this.totalSeconds == 0) {
       this.timerSub.unsubscribe();
       this.ended = true;
-      let instructionText = 'בשלב זה עליך למלא שאלון דיווח עצמי, אודות התהליך שעברת';
+      const instructionText = 'בשלב זה עליך למלא שאלון דיווח עצמי, אודות התהליך שעברת';
       this._instructionsService.SetInstructions(instructionText, '\selfReport');
       this.router.navigateByUrl('\instructions');
     }

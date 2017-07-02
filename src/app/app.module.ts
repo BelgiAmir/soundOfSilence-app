@@ -21,7 +21,6 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { SharedService } from './shared/shared.service';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ExterminateComponent } from './exterminate/exterminate.component';
-import { QuestioneerComponent } from './questioneer/questioneer.component';
 import { TetrisComponent } from './tetris/tetris.component';
 import { TimerComponent } from './timer/timer.component';
 import { AutofocusDirective } from './shared/focus.directive';
@@ -29,6 +28,7 @@ import { InstructionsComponent } from './instructions/instructions.component';
 import { SelfReportComponent } from './self-report/self-report.component';
 import { PosterService } from './shared/poster.service';
 import { InstructionsService } from './instructions/instructions.service';
+import { FinalQuestionsComponent } from './final-questions/final-questions.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +38,12 @@ import { InstructionsService } from './instructions/instructions.service';
     WelcomeComponent,
     ErrorPageComponent,
     ExterminateComponent,
-    QuestioneerComponent,
     TetrisComponent,
     TimerComponent,
     AutofocusDirective,
     InstructionsComponent,
     SelfReportComponent,
+    FinalQuestionsComponent,
   ],
   imports: [ReactiveFormsModule, MaterialModule,
     BrowserAnimationsModule,

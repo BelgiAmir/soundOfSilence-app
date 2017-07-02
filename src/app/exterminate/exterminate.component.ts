@@ -23,7 +23,7 @@ export class ExterminateComponent {
 
   constructor(private _sharedService: SharedService, private _router: Router) {
     console.log('setting title');
-    _sharedService.SetStageTitleAndProgress('שלב חשוב/אל תחשוב', 60);
+    _sharedService.SetStageTitleAndProgress(this.stageTitle, this.totalProgress);
   }
 
 }

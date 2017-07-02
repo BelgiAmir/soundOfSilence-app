@@ -19,10 +19,10 @@
     <div class="row">
       <alert [type]="typeOfAlert">ענית נכונה על {{(correctAnswersCount/Questions.length) * 100}}% {{alertMessage}}</alert>
     </div>
-    <div class="row" *ngIf='didPass'>
+    <div class="row" *ngIf='didPass || final'>
       <button type="button" class="btn btn-success" (click)="continue()"> המשך לשלב הבא</button>
     </div>
-    <div class="row" *ngIf='!didPass'>
+    <div class="row" *ngIf='!didPass && !final'>
       <button type="button" class="btn btn-danger" (click)="tryAgain()"> נסה שנית </button>
       <button type="button" class="btn btn-warning" (click)="study()"> חזור לשלב הלמידה </button>
     </div>

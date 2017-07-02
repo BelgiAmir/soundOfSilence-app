@@ -14,7 +14,19 @@ export class SlidesService {
   private images = [
     './assets/images/1.png',
     './assets/images/2.png',
-    './assets/images/3.png'
+    './assets/images/3.png',
+    './assets/images/4.png',
+    './assets/images/5.png',
+    './assets/images/6.png',
+    './assets/images/7.png',
+    './assets/images/8.png',
+    './assets/images/9.png',
+    './assets/images/10.png',
+    './assets/images/11.png',
+    './assets/images/12.png',
+    './assets/images/13.png',
+    './assets/images/14.png',
+    './assets/images/15.png'
   ];
 
   private _songsUrl = 'public/Songs.1.json';
@@ -22,7 +34,19 @@ export class SlidesService {
   private songs = [
     'תתארו לכם עולם יפה',
     'הזהב של השכונה',
-    'על כביש החוף'
+    'על כביש החוף',
+    'טיסה 5325',
+    'החיים שלנו תותים',
+    'מתנות קטנות',
+    'מי אוהב אותך יותר ממני',
+    'יונתן הקטן',
+    'ואיך שלא אפנה לראות',
+    'איפה איפה איפה העוגה',
+    'את אחלה חמודה',
+    'רודוס, בלאגן רודוס',
+    'עטור מצחך זהב שחור',
+    'אין לי ארץ אחרת',
+    'רעמים וברקים בליל חורף קר'
   ];
   constructor(private _http: Http) { }
 
@@ -51,6 +75,10 @@ export class SlidesService {
     for (let i = 0; i < images.length; i++) {
       if (i % 2 === 0) {
         tnt = 'חשוב';
+      }
+      // tslint:disable-next-line:one-line
+      else {
+        tnt = 'אל תחשוב';
       }
 
       slides[i] = new Slide(images[i], songs[i], tnt);

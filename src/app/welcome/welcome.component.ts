@@ -18,8 +18,8 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
   continue() {
-    let nextBtn = '\slides';
-    let instructionText = 'בשלב זה, עליכם ללמוד 15 צמדים של תמונות ושמות של שירים מוכרים';
+    const nextBtn = '\slides';
+    const instructionText = 'בשלב זה, עליכם ללמוד 15 צמדים של תמונות ושמות של שירים מוכרים';
     this._instructionService.SetInstructions(instructionText, nextBtn);
     this.router.navigateByUrl('\instructions');
   }

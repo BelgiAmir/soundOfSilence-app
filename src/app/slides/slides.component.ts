@@ -62,7 +62,7 @@ export class SlidesComponent implements OnInit {
   OnTimerEvent(): void {
     this.currentImageNumber++;
     this.currentImage = this.slides[this.currentImageNumber];
-    if (this.currentImageNumber == this.slides.length - 1) {
+    if (this.currentImageNumber === this.slides.length - 1) {
       this.timerSub.unsubscribe();
       this.showNextButton = true;
     }
@@ -74,8 +74,7 @@ export class SlidesComponent implements OnInit {
       data => console.log('success: ', data),
       err => console.log('error: ', err));
 
-    let instructionText = this.instructions;
-    this._instruction.SetInstructions(instructionText, this.nextBtn);
+    this._instruction.SetInstructions(this.instructions, this.nextBtn);
     this.router.navigateByUrl('\instructions');
   }
 

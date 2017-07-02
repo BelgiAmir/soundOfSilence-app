@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SlidesService } from 'app/slides/slides.service';
 import { Slide } from 'app/slides/slide';
 import { Observable } from 'rxjs/Rx';
@@ -26,7 +26,11 @@ import { AlertModule } from 'ngx-bootstrap/alert';
   moduleId: module.id,
 })
 export class QuestionComponent implements OnInit {
-
+  @Input() nextBtn = '\exetrminate';
+  @Input() progress = 30;
+  @Input() stageTitle = 'שלב המבחן';
+  @Input() instructions = 'בשלב זה נבקש מכם לחשוב/לא לחשוב על השירים בהתאם לתמונות מספר פעמים ברצף';
+  @Input() final = false;
   slides: Slide[];
   correctAnswers: number;
   currSlide: Slide;
@@ -57,7 +61,7 @@ export class QuestionComponent implements OnInit {
         'רודוס, בלאגן ברודוס',
         'אין לי ארץ אחרת'
       ],
-      'CorretAnswerIndex': 3,
+      'CorretAnswerIndex': 0,
       'ImageUrl': './assets/images/2.png'
     },
     {
@@ -67,18 +71,139 @@ export class QuestionComponent implements OnInit {
         'יונתן הקטן',
         'מתנות קטנות'
       ],
-      'CorretAnswerIndex': 3,
+      'CorretAnswerIndex': 1,
       'ImageUrl': './assets/images/3.png'
+    },
+    {
+      'Answers': [
+        'עטור מצחך זהב שחור',
+        'אין לי ארץ אחרת',
+        'טיסה 5325',
+        'על כביש החוף'
+      ],
+      'CorretAnswerIndex': 2,
+      'ImageUrl': './assets/images/4.png'
+    },
+    {
+      'Answers': [
+        'החיים שלנו תותים',
+        'עטור מצחך זהב שחור',
+        'הזהב של השכונה',
+        'על כביש החוף'
+      ],
+      'CorretAnswerIndex': 0,
+      'ImageUrl': './assets/images/5.png'
+    },
+    {
+      'Answers': [
+        'מי אוהב אותך יותר ממני',
+        'מתנות קטנות',
+        'איפה איפה איפה העוגה',
+        'את אחלה חמודה'
+      ],
+      'CorretAnswerIndex': 1,
+      'ImageUrl': './assets/images/6.png'
+    },
+    {
+      'Answers': [
+        'איפה איפה איפה העוגה',
+        'רודוס, בלאגן ברודוס',
+        'מי אוהב אותך יותר ממני',
+        'יונתן הקטן'
+      ],
+      'CorretAnswerIndex': 2,
+      'ImageUrl': './assets/images/7.png'
+    },
+    {
+      'Answers': [
+        'יונתן הקטן',
+        'איפה איפה איפה העוגה',
+        'רודוס, בלאגן ברודוס',
+        'אין לי ארץ אחרת'
+      ],
+      'CorretAnswerIndex': 0,
+      'ImageUrl': './assets/images/8.png'
+    },
+    {
+      'Answers': [
+        'יונתן הקטן',
+        'אין לי ארץ אחרת',
+        'רעמים וברקים בליל חורף קר',
+        'ואיך שלא אפנה לראות'
+      ],
+      'CorretAnswerIndex': 3,
+      'ImageUrl': './assets/images/9.png'
+    },
+    {
+      'Answers': [
+        'איפה איפה איפה העוגה',
+        'תתארו לכם עולם יפה',
+        'הזהב של השכונה',
+        'עטור מצחך זהב שחור'
+      ],
+      'CorretAnswerIndex': 0,
+      'ImageUrl': './assets/images/10.png'
+    },
+    {
+      'Answers': [
+        'את אחלה חמודה',
+        'עטור מצחך זהב שחור',
+        'אין לי ארץ אחרת',
+        'רעמים וברקים בליל חורף קר'
+      ],
+      'CorretAnswerIndex': 0,
+      'ImageUrl': './assets/images/11.png'
+    },
+    {
+      'Answers': [
+        'עטור מצחך זהב שחור',
+        'איפה איפה איפה העוגה',
+        'תתארו לכם עולם יפה',
+        'רודוס, בלאגן רודוס'
+      ],
+      'CorretAnswerIndex': 3,
+      'ImageUrl': './assets/images/12.png'
+    },
+    {
+      'Answers': [
+        'טיסה 5325',
+        'על כביש החוף',
+        'יונתן הקטן',
+        'עטור מצחך זהב שחור'
+      ],
+      'CorretAnswerIndex': 3,
+      'ImageUrl': './assets/images/13.png'
+    },
+    {
+      'Answers': [
+        'על כביש החוף',
+        'אין לי ארץ אחרת',
+        'איפה איפה איפה העוגה',
+        'את אחלה חמודה'
+      ],
+      'CorretAnswerIndex': 1,
+      'ImageUrl': './assets/images/14.png'
+    },
+    {
+      'Answers': [
+        'טיסה 5325',
+        'הזהב של השכונה',
+        'מי אוהב אותך יותר ממני',
+        'רעמים וברקים בליל חורף קר'
+      ],
+      'CorretAnswerIndex': 3,
+      'ImageUrl': './assets/images/15.png'
     }
   ];
   constructor(private _poster: PosterService, private _slidesService: SlidesService, private _sharedSrv: SharedService,
     private _http: Http, private _router: Router, private _instructionService: InstructionsService) {
-    _sharedSrv.SetStageTitleAndProgress('שלב המבחן', 30);
+
   }
 
 
   ngOnInit() {
     this.start();
+    this._sharedSrv.SetStageTitleAndProgress(this.stageTitle, this.progress);
   }
 
   start(): void {
@@ -99,23 +224,21 @@ export class QuestionComponent implements OnInit {
     const currentQuestion = this.Questions[this.currentQuestionNumber];
     const answers = currentQuestion.Answers;
     const correctAnswerIndex = currentQuestion.CorretAnswerIndex;
-    const isAnswerCorrect: boolean = currentQuestion.Answers[currentQuestion.CorretAnswerIndex] == this.currentAnswer;
+    const isAnswerCorrect: boolean = currentQuestion.Answers[currentQuestion.CorretAnswerIndex] === this.currentAnswer;
     if (isAnswerCorrect) {
       this.correctAnswersCount++;
       this.correctAnswerTitle.push(answers[correctAnswerIndex]);
       this.correctAnswers++;
     }
-    if (this.currentQuestionNumber == this.Questions.length - 1) {
+    if (this.currentQuestionNumber === this.Questions.length - 1) {
 
       this.examFinished = true;
+      this.typeOfAlert = 'danger';
+      this.alertMessage = ' לא עברת, לכן עליך ללמוד שוב ולהבחן בשנית ';
       if (this.DidPass()) {
         this.typeOfAlert = 'success';
         this.didPass = true;
         this.alertMessage = 'עברת את שלב המבחן';
-      }
-      else {
-        this.typeOfAlert = 'danger';
-        this.alertMessage = ' לא עברת, לכן עליך ללמוד שוב ולהבחן בשנית ';
       }
       return;
     }
@@ -133,9 +256,7 @@ export class QuestionComponent implements OnInit {
       data => console.log('success: ', data),
       err => console.log('error: ', err));
 
-    let nextBtn = '\exetrminate';
-    let instructionText = 'בשלב זה נבקש מכם לחשוב/לא לחשוב על השירים בהתאם לתמונות מספר פעמים ברצף';
-    this._instructionService.SetInstructions(instructionText, nextBtn);
+    this._instructionService.SetInstructions(this.instructions, this.nextBtn);
     this._router.navigateByUrl('\instructions');
   }
   tryAgain() {
