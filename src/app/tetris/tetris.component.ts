@@ -12,7 +12,7 @@ import { SharedService } from '../shared/shared.service';
 })
 export class TetrisComponent implements OnInit {
 
-  gameDuration = 5;
+  gameDuration = 300;
   constructor(private _sharedService: SharedService) { }
 
   ngOnInit() {
