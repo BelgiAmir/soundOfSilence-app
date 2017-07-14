@@ -64,7 +64,7 @@ export class SlidesService {
   private ReadFromJson(path: string): Observable<string[]> {
     return this._http.get(path)
       .map((response: Response) => <string[]>response.json())
-      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .do(data => console.log('All1: ' + JSON.stringify(data)))
       .catch(this.handleError);
   }
 
