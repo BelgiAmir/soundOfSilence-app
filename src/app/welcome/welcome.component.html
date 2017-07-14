@@ -61,6 +61,20 @@
     <br> תודה מראש החוקרים: נתנאל שדה, נוי יתאח stuckSongs@gmail.com
   </h6>
 </div>
+
+<div class="row">
+  <table>
+    <thead>
+      <th>תמונות</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let slide of slides"><img [src]='slide.imageUrl' class="img-responsive center-block" width="35px"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="row">
   <div class="col-md-3">
     <button type="button" class="btn btn-success" (click)="continue()">מאשר השתתפות</button>
