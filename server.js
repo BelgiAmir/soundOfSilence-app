@@ -65,7 +65,7 @@ app.post('/add', function (req, res) {
 
 app.get('/isAlive', function (req, res) {
   console.log('submmiting report ');
-  res.end("true");
+  res.end("true ds");
   return;
 })
 
