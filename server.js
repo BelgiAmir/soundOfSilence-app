@@ -59,7 +59,7 @@ app.post('/add', function (req, res) {
   jsonfile.writeFile(fileName, obj, { flag: 'a' }, function (err) {
     console.error(err)
   });
-  res.end("Good");
+  res.end("Good ");
   return fileName;
 });
 
