@@ -63,6 +63,12 @@ app.post('/add', function (req, res) {
   return fileName;
 })
 
+app.get('/isAlive', function (req, res) {
+  console.log('submmiting report');
+  res.end("true");
+  return;
+})
+
 /**
  * Get port from environment and store in Express.
  */

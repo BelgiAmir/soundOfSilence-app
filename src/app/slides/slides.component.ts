@@ -40,7 +40,7 @@ export class SlidesComponent implements OnInit {
     this._slidesService.getSlides()
       .subscribe(slides => {
         this.slides = this.CreateSlidesWithRepitions(slides);
-        const timer = Observable.timer(2500, 2500);
+        const timer = Observable.timer(3000, 3000);
         this.timerSub = timer.subscribe(t => this.OnTimerEvent());
 
         this.currentImageNumber = 0;
