@@ -9,6 +9,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class PosterService {
   public fileName = '';
+  public countStage = 0;
   constructor(private _http: Http) {
     this.fileName = (Math.floor(Date.now() / 1000)) + '.json';
   }
@@ -27,7 +28,8 @@ export class PosterService {
 
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    const inData = JSON.stringify({ 'body': any, 'fileName': this.fileName });
+    this.countStage++;
+    const inData = JSON.stringify({ 'body': any, 'fileName': this.fileName + this.countStage.toString() });
 
     return this._http.post('http://sosserver.azurewebsites.net/api/add', inData, options)
       .map(this.extractData).catch(this.handleError);
