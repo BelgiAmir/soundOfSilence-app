@@ -29,7 +29,7 @@ export class PosterService {
     const options = new RequestOptions({ headers: headers });
     const inData = JSON.stringify({ 'body': any, 'fileName': this.fileName });
 
-    return this._http.post('/add', inData, options)
+    return this._http.post('http://sosserver.azurewebsites.net/api/add', inData, options)
       .map(this.extractData).catch(this.handleError);
   }
 }
