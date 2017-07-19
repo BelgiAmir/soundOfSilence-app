@@ -29,7 +29,7 @@ export class QuestionComponent implements OnInit {
   @Input() nextBtn = '\exetrminate';
   @Input() progress = 30;
   @Input() stageTitle = 'שלב המבחן';
-  @Input() instructions = 'בשלב זה נבקש מכם לחשוב/לא לחשוב על השירים בהתאם לתמונות מספר פעמים ברצף';
+  @Input() instructions = 'בשלב זה נבקש מכם בחלק מהתמונות לחשוב על השיר שהוצג עימו, ובחלק מן התמונות לא לחשוב על תמונות אלו. תצוגה זו תוצג לכם ארבע פעמים ברצף';
   @Input() final = false;
   slides: Slide[];
   correctAnswers: number;
